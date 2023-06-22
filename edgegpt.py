@@ -14,10 +14,11 @@ pip install ndjson
 
 async def main():
 
-    os.makedirs("output_0622", exist_ok=True)
+    os.makedirs("output", exist_ok=True)
 
-    cookies = json.loads(open("cookies.json", encoding="utf-8").read())  # might omit cookies option
-    bot = await Chatbot.create(cookies=cookies)
+    #cookies = json.loads(open("cookies.json", encoding="utf-8").read())  # might omit cookies option
+    #bot = await Chatbot.create(cookies=cookies)
+    bot = await Chatbot.create()
 
     inputs=[]
     response=[]
@@ -40,7 +41,7 @@ async def main():
             break
         
     now = datetime.datetime.now()
-    filename = './output_0622/log_' + now.strftime('%Y%m%d_%H%M%S') + '.json'
+    filename = './output/log_' + now.strftime('%Y%m%d_%H%M%S') + '.json'
 
     data = []
     for l, v in zip(inputs, response):
